@@ -65,8 +65,10 @@ import traceback
 import platform
 import random
 import threading
-import urllib2
-
+try:
+    import urllib2
+except:
+    import urllib
 __file__ = os.path.abspath(__file__)
 if os.path.islink(__file__):
     __file__ = getattr(os, 'readlink', lambda x: x)(__file__)
@@ -85,7 +87,14 @@ create_data_path()
 
 from config import config
 
+from config import config
 
+from xlog import getLogger
+xlog = getLogger("gae_proxy")
+xlog.set_buffer(500)
+if config.log_file:
+    log_file = os.path.join(data_gae_proxy_path, "local.log")
+    xlog.set_file(log_file)
 from cert_util import CertUtil
 import pac_server
 import simple_http_server
@@ -94,7 +103,7 @@ import connect_control
 import env_info
 import connect_manager
 from gae_handler import spawn_later
-import xlog
+
 
 # launcher/module_init will check this value for start/stop finished
 ready = False
@@ -186,7 +195,6 @@ def pre_start():
 
 
 def log_info():
-    return
     xlog.info('------------------------------------------------------')
     xlog.info('Python Version     : %s', platform.python_version())
     xlog.info('OS                 : %s', env_info.os_detail())
@@ -209,7 +217,7 @@ def main():
     config.load()
     connect_manager.https_manager.load_config()
 
-    # xlog.debug("## GAEProxy set keep_running: %s", connect_control.keep_running)
+    #xlog.debug("## GAEProxy set keep_running: %s", connect_control.keep_running)
     # to profile gae_proxy, run proxy.py, visit some web by proxy, then visit http://127.0.0.1:8084/quit to quit and print result.
     do_profile = False
     if do_profile:
@@ -226,7 +234,7 @@ def main():
     pre_start()
     log_info()
 
-    #CertUtil.init_ca()
+    CertUtil.init_ca()
 
     proxy_daemon = simple_http_server.HTTPServer((config.LISTEN_IP, config.LISTEN_PORT), proxy_handler.GAEProxyHandler)
     proxy_thread = threading.Thread(target=proxy_daemon.serve_forever)

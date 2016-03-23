@@ -11,6 +11,8 @@ if os.path.islink(__file__):
 
 current_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_path)
+sys.path.append(os.path.join(current_path,"noarch"))
+sys.path.append(os.path.join(current_path,"local"))
 import local.proxy as client
 
 
@@ -21,4 +23,5 @@ def main():
         sys.exit()
 
 if __name__ == "__main__":
+
     main()
