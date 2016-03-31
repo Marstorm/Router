@@ -36,7 +36,7 @@ elif sys.platform == "darwin":
 def main():
     try:
         from local.cert_util import CertUtil
-        CertUtil.init_ca()
+        CertUtil.init_ca(True)
     except KeyboardInterrupt:
         sys.exit()
 

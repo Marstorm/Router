@@ -520,7 +520,7 @@ class CertUtil(object):
 
 
     @staticmethod
-    def init_ca():
+    def init_ca(import_cert=False):
         #Check Certs Dir
         if not os.path.exists(CertUtil.ca_certdir):
             os.makedirs(CertUtil.ca_certdir)
@@ -550,8 +550,8 @@ class CertUtil(object):
                 serial_number = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, fp.read()).get_serial_number()
             if serial_number != CertUtil.get_cert_serial_number(commonname):
                 any(os.remove(x) for x in certfiles)
-
-        CertUtil.import_ca(CertUtil.ca_keyfile)
+        if import_cert:
+            CertUtil.import_ca(CertUtil.ca_keyfile)
 
         # change the status,
         # web_control /cert_import_status will return True, else return False
