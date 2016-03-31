@@ -1,0 +1,32 @@
+Mar 29 14:40:11.939 - [INFO] start XX-Net 2.9.2
+Mar 29 14:40:11.939 - [DEBUG] start confirm_xxnet_exit
+Mar 29 14:40:12.946 - [DEBUG] good, xxnet:8087 cleared!
+Mar 29 14:40:13.948 - [DEBUG] good, xxnet:8085 clear!
+Mar 29 14:40:13.948 - [DEBUG] finished confirm_xxnet_exit
+Mar 29 14:40:15.293 - [INFO] module gae_proxy started
+Mar 29 14:40:15.293 - [INFO] start gae_proxy time cost 1338
+Mar 29 14:40:15.293 - [INFO] begin to start web control
+Mar 29 14:40:15.294 - [INFO] launcher web control started.
+Mar 29 14:40:17.310 - [INFO] get uuid:f483f807-d1fa-4275-8654-eca51b7b8108
+Mar 29 14:40:17.592 - [INFO] download https://raw.githubusercontent.com/XX-net/XX-Net/master/README.md to D:\Program Files\XX-Net-master\data\downloads\README.md, retry:0
+Mar 29 14:40:17.865 - [ERROR] check_update fail:TypeError("'NoneType' object has no attribute '__getitem__'",)
+Mar 29 14:40:17.866 - [ERROR] Except stack:Traceback (most recent call last):
+  File "D:\Program Files\XX-Net-master\launcher\update.py", line 248, in check_update
+    if LooseVersion(current_version) < LooseVersion(versions[1][1]):
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+Mar 29 14:40:21.452 - [DEBUG] launcher web_control 127.0.0.1:62192 GET /css/bootstrap.css 
+Mar 29 14:40:21.462 - [DEBUG] launcher web_control 127.0.0.1:62227 GET /css/bootstrap-responsive.css 
+Mar 29 14:40:21.462 - [DEBUG] launcher web_control 127.0.0.1:62228 GET /css/flat-ui.css 
+Mar 29 14:40:21.462 - [DEBUG] launcher web_control 127.0.0.1:62229 GET /css/ladda-themeless.min.css 
+Mar 29 14:40:21.462 - [DEBUG] launcher web_control 127.0.0.1:62230 GET /css/style.css?ver=2.9.2 
+Mar 29 14:40:21.462 - [DEBUG] launcher web_control 127.0.0.1:62231 GET /js/jquery-1.11.2.min.js 
+Mar 29 14:40:21.505 - [DEBUG] launcher web_control 127.0.0.1:62192 GET /js/bootstrap.min.js 
+Mar 29 14:40:21.520 - [DEBUG] launcher web_control 127.0.0.1:62227 GET /js/jquery.timer.js 
+Mar 29 14:40:21.522 - [DEBUG] launcher web_control 127.0.0.1:62229 GET /js/spin.min.js 
+Mar 29 14:40:21.531 - [DEBUG] launcher web_control 127.0.0.1:62231 GET /js/ladda.min.js 
+Mar 29 14:40:21.541 - [DEBUG] launcher web_control 127.0.0.1:62230 GET /js/site.js?ver=2.9.2 
+Mar 29 14:40:21.550 - [DEBUG] launcher web_control 127.0.0.1:62228 GET /img/logo.png 
+Mar 29 14:40:21.574 - [DEBUG] launcher web_control 127.0.0.1:62228 GET /img/fixed-width.png 
+Mar 29 14:40:21.594 - [DEBUG] launcher web_control 127.0.0.1:62228 GET /img/quit.png 
+Mar 29 14:40:22.306 - [DEBUG] launcher web_control 127.0.0.1:62231 GET /favicon.ico 
